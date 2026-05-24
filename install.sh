@@ -1,5 +1,6 @@
 #!/bin/bash
-set -e
+# Включаем строгий режим для немедленного выхода при ошибках
+set -euo pipefail
 
 # ──────────────────────────────────────────────
 # Установочный скрипт dotfiles для Hyprland
@@ -30,10 +31,16 @@ fi
 if ! command -v yay &>/dev/null; then
     echo "📦 yay не найден. Устанавливаю из AUR..."
     tempdir=$(mktemp -d)
-    git clone https://aur.archlinux.org/yay.git "$tempdir/yay"
-    cd "$tempdir/yay"
-    makepkg -si --noconfirm
-    cd -
+    # Явная проверка успешности клонирования
+    if git clone https://aur.archlinux.org/yay.git "$tempdir/yay"; then
+        cd "$tempdir/yay"
+        makepkg -si --noconfirm
+        cd -
+    else
+        echo "❌ Ошибка: не удалось клонировать репозиторий yay." >&2
+        rm -rf "$tempdir"
+        exit 1
+    fi
     rm -rf "$tempdir"
 fi
 
@@ -101,12 +108,14 @@ fi
 # 9. Установка Zsh оболочкой по умолчанию
 if command -v zsh &>/dev/null; then
     if [ "$SHELL" != "$(which zsh)" ]; then
-        echo "🐚 Меняю оболочку по умолчанию на Zsh"
-        chsh -s "$(which zsh)" "$USER"
+        echo "🐚 Меняю оболочку по умолчанию на Zsh..."
+        if chsh -s "$(which zsh)" "$USER"; then
+            echo "✅ Оболочка изменена на Zsh. Изменения вступят в силу после перезахода в систему."
+        else
+            echo "❌ Не удалось изменить оболочку. Попробуйте вручную: chsh -s $(which zsh)" >&2
+        fi
     fi
 fi
 
 echo ""
 echo "✅ Установка завершена!"
-echo "   Чтобы начать работу, выйдите из текущей сессии и выполните команду: Hyprland"
-echo "   Либо перезагрузитесь и выберите Hyprland в меню входа, если используется DM."
