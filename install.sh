@@ -125,3 +125,11 @@ fi
 
 echo ""
 echo "✅ Установка завершена!"
+
+# 11. Включение NetworkManager, если он не активен
+if ! systemctl is-enabled NetworkManager.service &>/dev/null; then
+    echo "🔌 Включаю NetworkManager..."
+    sudo systemctl enable --now NetworkManager.service
+else
+    echo "✅ NetworkManager уже включён."
+fi
