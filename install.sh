@@ -117,11 +117,11 @@ if command -v zsh &>/dev/null; then
     fi
 fi
 
-echo ""
-echo "✅ Установка завершена!"
-
 # 10. Делаем исполняемыми все скрипты в .local/bin
 if [ -d "$HOME/.local/bin" ]; then
     echo "🔧 Устанавливаю права на выполнение для пользовательских скриптов..."
     chmod +x "$HOME/.local/bin"/*
 fi
+
+echo ""
+echo "✅ Установка завершена!"
