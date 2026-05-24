@@ -7,7 +7,7 @@
 1. Установите базовую Arch Linux, создайте пользователя, настройте сеть.
 2. Клонируйте этот репозиторий:
    ```bash
-   git clone https://github.com/ваш-аккаунт/dotfiles.git ~/dotfiles
+   git clone https://github.com/TKakashi/dotfiles.git ~/dotfiles
    cd ~/dotfiles
 3. Запустите установочный скрипт:
    ````bash
