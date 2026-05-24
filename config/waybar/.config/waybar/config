@@ -1,1 +1,75 @@
-
+{
+    "layer": "top",
+    "position": "top",
+    "height": 32,
+    "spacing": 4,
+    "modules-left": [
+        "hyprland/workspaces"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "tray",
+        "network",
+        "bluetooth",
+        "pulseaudio",
+        "battery",
+        "custom/power"
+    ],
+    // Настройки модулей
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": false,
+        "format": "{icon}",
+        "format-icons": {
+            "1": "一", "2": "二", "3": "三", "4": "四", "5": "五",
+            "urgent": "", "focused": "", "default": ""
+        }
+    },
+    "clock": {
+        "format": "{:%H:%M  %d.%m.%Y}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+    "network": {
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "format-disconnected": "⚠️",
+        "tooltip-format": "{ifname}: {ipaddr}"
+    },
+    "bluetooth": {
+        "format": " {status}",
+        "format-disabled": "",
+        "format-connected": " {num_connections} connected",
+        "tooltip-format": "{device_alias} ({device_address})"
+    },
+    "pulseaudio": {
+        "format": "{icon}  {volume}%",
+        "format-bluetooth": "{icon} {volume}%",
+        "format-muted": "🔇",
+        "format-icons": {
+            "headphone": "🎧",
+            "default": ["🔈", "🔉", "🔊"]
+        },
+        "on-click": "pavucontrol"
+    },
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon}  {capacity}%",
+        "format-charging": "⚡ {capacity}%",
+        "format-plugged": "⚡ {capacity}%",
+        "format-icons": ["🪫", "🔋"]
+    },
+    "tray": {
+        "icon-size": 18,
+        "spacing": 10
+    },
+    "custom/power": {
+        "format": "⏻",
+        "on-click": "wlogout",
+        "tooltip": "Меню питания"
+    }
+}
