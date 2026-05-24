@@ -1,1 +1,8 @@
-
+# Пакеты из AUR
+swaylock-effects
+hyprpaper
+bibata-cursor-theme
+wlogout
+ttf-hack-nerd
+zsh-autosuggestions
+zsh-syntax-highlighting
