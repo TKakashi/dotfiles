@@ -1,1 +1,43 @@
+# Официальные пакеты (community, extra, core)
+# Среда и композитор
+hyprland
+waybar
+wofi
+kitty
+dunst
+swaybg
 
+# Утилиты для Wayland
+wl-clipboard
+grim
+slurp
+swappy
+brightnessctl
+
+# Звук (PipeWire)
+pipewire
+wireplumber
+pipewire-pulse
+pipewire-alsa
+
+# Сеть и Bluetooth (апплеты для трея)
+network-manager-applet
+blueman
+
+# Темы оформления и шрифты
+arc-gtk-theme
+papirus-icon-theme
+ttf-font-awesome
+
+# Интеграция с GTK/Qt
+qt5-wayland
+qt6-wayland
+gtk3
+gtk4
+xdg-desktop-portal-hyprland
+xdg-desktop-portal-gtk
+
+# Другие важные компоненты
+polkit-gnome
+zsh
+zsh-completions
