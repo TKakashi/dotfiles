@@ -1,1 +1,8 @@
-
+# Базовые настройки wofi
+show=drun
+width=600
+height=300
+location=center
+prompt=Запустить...
+allow_markup=true
+no_actions=true
