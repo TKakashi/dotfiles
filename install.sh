@@ -53,6 +53,14 @@ grep -vE '^\s*(#|$)' packages/official.txt | sudo pacman -S --needed --noconfirm
 echo "📦 Установка AUR-пакетов..."
 yay -S --needed --noconfirm $(grep -vE '^\s*(#|$)' packages/aur.txt)
 
+# 11. Включение NetworkManager, если он не активен
+if ! systemctl is-enabled NetworkManager.service &>/dev/null; then
+    echo "🔌 Включаю NetworkManager..."
+    sudo systemctl enable --now NetworkManager.service
+else
+    echo "✅ NetworkManager уже включён."
+fi
+
 # 7. Резервное копирование существующих конфигов и создание симлинков
 BACKUP_DIR="$HOME/dotfiles_backup_$(date +%Y%m%d%H%M%S)"
 echo "📁 Резервное копирование существующих конфигов в $BACKUP_DIR"
@@ -125,11 +133,3 @@ fi
 
 echo ""
 echo "✅ Установка завершена!"
-
-# 11. Включение NetworkManager, если он не активен
-if ! systemctl is-enabled NetworkManager.service &>/dev/null; then
-    echo "🔌 Включаю NetworkManager..."
-    sudo systemctl enable --now NetworkManager.service
-else
-    echo "✅ NetworkManager уже включён."
-fi
