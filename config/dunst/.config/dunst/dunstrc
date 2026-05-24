@@ -1,1 +1,34 @@
+[global]
+    # Углы уведомлений
+    corner_radius = 12
+    # Прозрачность
+    transparency = 10
+    # Шрифт
+    font = Hack Nerd Font 12
+    # Позиция (верхний правый угол)
+    origin = top-right
+    offset = 20x20
+    # Максимальное количество видимых уведомлений
+    notification_limit = 5
+    # Интервал отображения
+    timeout = 5
+    # Иконки
+    icon_position = left
+    max_icon_size = 48
+    # Формат
+    format = "<b>%s</b>\n%b"
 
+[urgency_low]
+    background = "#1e1e2e"
+    foreground = "#cdd6f4"
+    timeout = 4
+
+[urgency_normal]
+    background = "#313244"
+    foreground = "#cdd6f4"
+    timeout = 6
+
+[urgency_critical]
+    background = "#f38ba8"
+    foreground = "#1e1e2e"
+    timeout = 10
