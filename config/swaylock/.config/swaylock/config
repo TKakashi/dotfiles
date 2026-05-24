@@ -1,1 +1,8 @@
-
+# Настройки swaylock-effects
+screenshots
+clock
+indicator
+effect-blur=7x5
+grace=5
+fade-in=0.2
+ignore-empty-password
